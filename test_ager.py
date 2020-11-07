@@ -16,6 +16,8 @@ class CheckPython2Docker(unittest.TestCase):
         print('test_exec_docker')
         self.assertEqual("Hi DevOps, age 1\n",
                          self.test_docker.get_logs("DevOps", 5))
+        self.assertEqual("Hi DevOps, age 10\n",
+                         self.test_docker.get_logs("DevOps", 10))
 
 
 if __name__ == "__main__":
