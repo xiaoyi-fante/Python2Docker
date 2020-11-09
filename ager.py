@@ -24,13 +24,13 @@ class Python2docker:
         return tmp
 
     # Get the running result of docker command
-    def get_logs(self, name: str, age: int):
+    def get_logs(self, name, age):
         command = self.get_docker_command(name, age)
         logs = self.exec_docker(command)
         return logs
 
 # Parsing parameters from the command line
-def get_parser(self):
+def get_parser():
     parser = argparse.ArgumentParser(description="Demo of argparse")
     parser.add_argument('-n', '--name', required=True,
                         help="input the docker name")
