@@ -5,6 +5,7 @@ import os
 
 
 class Python2docker:
+    # Parsing parameters from the command line
     def get_parser(self):
         parser = argparse.ArgumentParser(description="Demo of argparse")
         parser.add_argument('-n', '--name', required=True,
