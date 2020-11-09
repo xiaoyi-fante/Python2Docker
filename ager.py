@@ -5,14 +5,6 @@ import os
 
 
 class Python2docker:
-    # Parsing parameters from the command line
-    def get_parser(self):
-        parser = argparse.ArgumentParser(description="Demo of argparse")
-        parser.add_argument('-n', '--name', required=True,
-                            help="input the docker name")
-        parser.add_argument('-a', '--age', type=int, required=True,
-                            help="input the age that the docker will run")
-        return parser
 
     # Generate the Docker run command
     def get_docker_command(self, name, age):
@@ -37,10 +29,19 @@ class Python2docker:
         logs = self.exec_docker(command)
         return logs
 
+# Parsing parameters from the command line
+def get_parser(self):
+    parser = argparse.ArgumentParser(description="Demo of argparse")
+    parser.add_argument('-n', '--name', required=True,
+                        help="input the docker name")
+    parser.add_argument('-a', '--age', type=int, required=True,
+                        help="input the age that the docker will run")
+    return parser
+
 
 if __name__ == '__main__':
     python2docker = Python2docker()
-    parser = python2docker.get_parser()
+    parser = get_parser()
     args = parser.parse_args()
     name = args.name
     age = args.age
