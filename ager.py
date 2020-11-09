@@ -13,6 +13,7 @@ class Python2docker:
                             help="input the age that the docker will run")
         return parser
 
+    # Generate the Docker run command
     def get_docker_command(self, name, age):
         age = str(age)
         x = 'echo Hi ' + name + ', age ' + age
@@ -21,6 +22,7 @@ class Python2docker:
         command = z + '"' + y + x + '"'
         return command
 
+    # Run the Docker command using os.popen
     def exec_docker(self, command):
         print('docker run ...')
         # print(command)
@@ -28,6 +30,7 @@ class Python2docker:
         tmp = ".".join(tmp)
         return tmp
 
+    # Get the running result of docker command
     def get_logs(self, name: str, age: int):
         command = self.get_docker_command(name, age)
         logs = self.exec_docker(command)
