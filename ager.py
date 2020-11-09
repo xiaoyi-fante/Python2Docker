@@ -18,9 +18,8 @@ class Python2docker:
     # Run the Docker command using os.popen
     def exec_docker(self, command):
         print('docker run ...')
-        # print(command)
         tmp = os.popen(command).readlines()
-        tmp = ".".join(tmp)
+        tmp = "".join(tmp)
         return tmp
 
     # Get the running result of docker command
@@ -40,10 +39,11 @@ def get_parser():
 
 
 if __name__ == '__main__':
-    python2docker = Python2docker()
     parser = get_parser()
     args = parser.parse_args()
     name = args.name
     age = args.age
+
+    python2docker = Python2docker()
     logs = python2docker.get_logs(name, age)
     print(logs)
