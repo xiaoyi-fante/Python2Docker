@@ -10,7 +10,7 @@ class CheckPython2Docker(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        warnings.simplefilter('ignore', "ResourceWarning")
+        warnings.simplefilter('ignore', ResourceWarning)
 
     def test_exec_docker(self):
         print('test_exec_docker')
